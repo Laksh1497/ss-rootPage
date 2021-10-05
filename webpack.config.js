@@ -4,12 +4,21 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = (webpackConfigEnv, argv) => {
   const orgName = "darthlaksh97";
+
+  
   const defaultConfig = singleSpaDefaults({
     orgName,
     projectName: "root-config",
     webpackConfigEnv,
     argv,
     disableHtmlGeneration: true,
+    devServer: {
+      headers: {
+        "Access-Control-Allow-Origin": "https://main.d2rnselr68b9dq.amplifyapp.com",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+        "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+      }
+    }
   });
 
   return merge(defaultConfig, {
@@ -24,5 +33,6 @@ module.exports = (webpackConfigEnv, argv) => {
         },
       }),
     ],
+
   });
 };
