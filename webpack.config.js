@@ -12,13 +12,7 @@ module.exports = (webpackConfigEnv, argv) => {
     webpackConfigEnv,
     argv,
     disableHtmlGeneration: true,
-    devServer: {
-      headers: {
-        "Access-Control-Allow-Origin": "https://main.d2rnselr68b9dq.amplifyapp.com",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-        "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
-      }
-    }
+    
   });
 
   return merge(defaultConfig, {
@@ -33,6 +27,12 @@ module.exports = (webpackConfigEnv, argv) => {
         },
       }),
     ],
-
+    devServer: {
+      headers: {
+        "Access-Control-Allow-Origin": "https://main.d2rnselr68b9dq.amplifyapp.com",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+        "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+      }
+    }
   });
 };
